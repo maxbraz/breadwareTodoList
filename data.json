@@ -4,19 +4,19 @@
     "completed": false
   },
   {
-    "name": "Create tests",
+    "todo": "Create tests",
     "completed": false
   },
   {
-    "name": "Deploy to AWS",
+    "todo": "Deploy to AWS",
     "completed": false
   },
   {
-    "name": "Fix bugs",
+    "todo": "Fix bugs",
     "completed": false
   },
   {
-    "name": "Add C.I.",
+    "todo": "Add C.I.",
     "completed": false
   }
 ]
