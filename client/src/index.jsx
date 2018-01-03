@@ -16,7 +16,7 @@ class App extends React.Component {
 
   addTodo(todo) {
     let todos;
-    axios.post('/todo', {
+    axios.post('/item', {
       todo: todo
     })
     .then(function(response) {
@@ -32,7 +32,7 @@ class App extends React.Component {
   fetchTodos(todos) {
     let fetchedTodos;
 
-    axios.get('/todos', {
+    axios.get('/items', {
       params: {
         todos: todos
       }
