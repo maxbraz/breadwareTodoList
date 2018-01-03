@@ -1,45 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import List from './components/List.jsx';
+import Todos from './components/Todos.jsx';
 import testData from '../../data.json';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: testData
+      todos: testData
     }
-    this.fetchItems = this.fetchItems.bind(this);
-    this.addItem = this.addItem.bind(this);
+    this.fetchTodos = this.fetchTodos.bind(this);
+    this.addTodo = this.addTodo.bind(this);
   }
 
-  addItem(item) {
-    let items;
-    axios.post('/item', {
-      item: item
+  addTodo(todo) {
+    let todos;
+    axios.post('/todo', {
+      todo: todo
     })
     .then(function(response) {
-      items = response.data;
+      todos = response.data;
     })
     .catch(function(error) {
       console.log(error);
     })
 
-    this.fetch(items);
+    this.fetch(todos);
   }
 
-  fetchItems(items) {
-    let fetchedItems;
+  fetchTodos(todos) {
+    let fetchedTodos;
 
-    axios.get('/items', {
+    axios.get('/todos', {
       params: {
-        items: items
+        todos: todos
       }
     })
     .then(function (response) {
-      fetchedItems = response.data;
-      this.setState({items: fetchedItems})
+      fetchedTodos = response.data;
+      this.setState({todos: fetchedTodos})
     })
     .catch(function (error) {
       console.log(error);
@@ -48,8 +48,8 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
+      <h1>Todos: </h1>
+      <Todos todos={this.state.todos}/>
     </div>)
   }
 }
