@@ -8,10 +8,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: testData
+      todos: []
     }
-    this.fetchTodos = this.fetchTodos.bind(this);
+
     this.addTodo = this.addTodo.bind(this);
+    this.fetchTodos = this.fetchTodos.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchTodos();
   }
 
   addTodo(todo) {
@@ -26,11 +31,12 @@ class App extends React.Component {
       console.log(error);
     })
 
-    this.fetch(todos);
+    this.fetchTodos(todos);
   }
 
   fetchTodos(todos) {
     let fetchedTodos;
+    let that = this;
 
     axios.get('/items', {
       params: {
@@ -39,7 +45,8 @@ class App extends React.Component {
     })
     .then(function (response) {
       fetchedTodos = response.data;
-      this.setState({todos: fetchedTodos})
+
+      that.setState({todos: fetchedTodos});
     })
     .catch(function (error) {
       console.log(error);

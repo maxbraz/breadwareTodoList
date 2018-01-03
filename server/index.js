@@ -18,7 +18,7 @@ app.post('/item', (req, res) => {
 
 app.get('/items', (req, res) => {
 
-  Item.find({}).limit(5).exec( (err, items) => {
+  Todo.find({}).limit(5).exec( (err, items) => {
     if (err) {
       console.log( 'server get failure', err);
     } else {

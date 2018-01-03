@@ -3,7 +3,7 @@ let todos = require('./data.json');
 
 for (let todo of todos) {
   let todoo = new Todo({
-    name: todo.todo,
+    todo: todo.todo,
     completed: todo.completed,
   });
   todoo.save((err) => {
