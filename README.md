@@ -1,16 +1,25 @@
-# mernStarter
-boilerplate MERN stack list
+# breadware todo list coding challenge
+# my own boilerplate mern repo was used to start this project.  Original code can be found here: https://github.com/maxbraz/mernStarter
 
-git clone the repo to your local machine
+# To get this setup and running locally please follow the instructions below from the terminal:
 
-cd into the repo directory
+# clone the repo to your local machine
+$ git clone https://github.com/maxbraz/breadwareTodoList.git
 
-npm install
+# enter the directory
+$ cd breadwareTodoList
 
-npm run react-dev
+# install dependencies
+$ npm install
 
-npm run server-dev
+# build the bundle.js with webpack
+$ npm run react-dev
 
-npm run db-start
+# start the node/express server
+$ npm run server-dev
 
-open a browser to localhost:5000
+# connect to the mongodb
+$ npm run db-start
+
+# view the web app in your preferred browser
+$ type localhost:5000 into your address bar
