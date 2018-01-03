@@ -83,3 +83,8 @@ db/index-2-2060924463869423682.wt
 db/index-4-2060924463869423682.wt
 db/diagnostic.data/metrics.2018-01-03T22-18-57Z-00000
 db/journal/WiredTigerLog.0000000002
+db/index-8-2060924463869423682.wt
+db/collection-6-2060924463869423682.wt
+db/index-7-2060924463869423682.wt
+db/diagnostic.data/metrics.2018-01-03T22-47-42Z-00000
+db/journal/WiredTigerLog.0000000003
