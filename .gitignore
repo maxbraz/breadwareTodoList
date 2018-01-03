@@ -41,6 +41,11 @@ bower_components/
 bundle.js
 client/public/bundle.js
 db/_mdb_catalog.wt
+db/collection
+db/index
+db/journal
+db/WiredTiger
+db/diagnostic.data
 db/collection-0--5368344648979717449.wt
 db/collection-2--5368344648979717449.wt
 db/collection-5--5368344648979717449.wt
@@ -88,3 +93,5 @@ db/collection-6-2060924463869423682.wt
 db/index-7-2060924463869423682.wt
 db/diagnostic.data/metrics.2018-01-03T22-47-42Z-00000
 db/journal/WiredTigerLog.0000000003
+db/collection-3-2375523420949614986.wt
+db/index-4-2375523420949614986.wt
