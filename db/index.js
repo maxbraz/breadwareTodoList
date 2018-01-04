@@ -15,7 +15,8 @@ db.once('open', function() {
 
 let todoSchema = mongoose.Schema({
   id: { type: Number, unique: true },
-  todo: String,
+  title: String,
+  summary: String,
   completed: Boolean,
 });
 

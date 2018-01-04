@@ -1,22 +1,27 @@
 [
   {
-    "todo": "Setup dev environment",
+    "title": "Setup dev environment",
+    "summary": "setup your local environment",
     "completed": false
   },
   {
-    "todo": "Create tests",
+    "title": "Create tests",
+    "summary": "create missing test to get a feel for the code base",
     "completed": false
   },
   {
-    "todo": "Deploy to AWS",
+    "title": "Deploy to AWS",
+    "summary": "setup deployment to Amazon Web Services",
     "completed": false
   },
   {
-    "todo": "Fix bugs",
+    "title": "Fix bugs",
+    "summary": "pick up a ticket and fix that bug!",
     "completed": false
   },
   {
-    "todo": "Add C.I.",
+    "title": "Add C.I.",
+    "summary": "add continuous integration with Travis",
     "completed": false
   }
 ]

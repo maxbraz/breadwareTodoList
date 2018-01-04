@@ -7,24 +7,26 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../client/dist')));
 
-app.post('/item', (req, res) => {
+app.post('/todo', (req, res) => {
   let todo = new Todo({
-    'name': req.body.name,
+    'title': req.body.title,
+    'summary': req.body.summary,
     'completed': false,
   });
 
   res.send(JSON.stringify('Successful Post!'));
 });
 
-app.get('/items', (req, res) => {
+app.get('/todos', (req, res) => {
 
-  Todo.find({}).limit(5).exec( (err, items) => {
+  Todo.find({}, (err, todos) => {
     if (err) {
       console.log( 'server get failure', err);
     } else {
       console.log('Successful Get!');
     }
-    res.end(JSON.stringify(items));
+
+    res.end(JSON.stringify(todos));
   });
 });
 
