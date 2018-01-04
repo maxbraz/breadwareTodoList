@@ -95,3 +95,5 @@ db/diagnostic.data/metrics.2018-01-03T22-47-42Z-00000
 db/journal/WiredTigerLog.0000000003
 db/collection-3-2375523420949614986.wt
 db/index-4-2375523420949614986.wt
+db/collection-40-2375523420949614986.wt
+db/index-41-2375523420949614986.wt
