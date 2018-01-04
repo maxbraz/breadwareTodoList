@@ -64,7 +64,6 @@ class App extends React.Component {
       <MuiThemeProvider>
         <Router>
           <div>
-            <h1>Todos: </h1>
             <Todos todos={this.state.todos}/>
           </div>
         </Router>

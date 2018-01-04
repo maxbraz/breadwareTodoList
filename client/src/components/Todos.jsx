@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Todo from './Todo.jsx';
+import LogoutBar from './LogoutBar.jsx'
 import {
   Table,
   TableBody,
@@ -10,6 +11,8 @@ import {
 } from 'material-ui/Table';
 
 const Todos = ({todos}) => (
+  <div>
+  <LogoutBar />
   <Table>
     <TableHeader
       displaySelectAll={false}
@@ -20,6 +23,8 @@ const Todos = ({todos}) => (
         <TableHeaderColumn>Title</TableHeaderColumn>
         <TableHeaderColumn>Summary</TableHeaderColumn>
         <TableHeaderColumn>Completed</TableHeaderColumn>
+        <TableHeaderColumn></TableHeaderColumn>
+        <TableHeaderColumn></TableHeaderColumn>
       </TableRow>
     </TableHeader>
     <TableBody>
@@ -28,6 +33,7 @@ const Todos = ({todos}) => (
       })}
     </TableBody>
   </Table>
+  </div>
 );
 
 export default Todos;
