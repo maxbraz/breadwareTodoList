@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import Todos from './components/Todos.jsx';
 import testData from '../../data.json';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +27,7 @@ class App extends React.Component {
 
   addTodo(todo) {
     let todos;
-    axios.post('/item', {
+    axios.post('/todo', {
       todo: todo
     })
     .then(function(response) {
@@ -38,7 +44,7 @@ class App extends React.Component {
     let fetchedTodos;
     let that = this;
 
-    axios.get('/items', {
+    axios.get('/todos', {
       params: {
         todos: todos
       }
@@ -54,10 +60,16 @@ class App extends React.Component {
   }
 
   render () {
-    return (<div>
-      <h1>Todos: </h1>
-      <Todos todos={this.state.todos}/>
-    </div>)
+    return (
+      <MuiThemeProvider>
+        <Router>
+          <div>
+            <h1>Todos: </h1>
+            <Todos todos={this.state.todos}/>
+          </div>
+        </Router>
+      </MuiThemeProvider>
+    )
   }
 }
 
