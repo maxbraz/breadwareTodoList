@@ -31,6 +31,7 @@ class Todos extends React.Component {
   }
 
   componentWillMount() {
+    this.fetchTodos();
     this.props.dispatch(getTodos());
   }
 
@@ -96,7 +97,7 @@ class Todos extends React.Component {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {todos.map((todo, i) => {
+          {this.state.todos.map((todo, i) => {
             return <Todo key={todo.id} completed={todo.completed} title={todo.title} summary={todo.summary} />
           })}
         </TableBody>
