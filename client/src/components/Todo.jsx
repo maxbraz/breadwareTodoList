@@ -1,19 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types'
 import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
 import FlatButton from 'material-ui/FlatButton';
 
-const Todo = ({todo}) => (
+const Todo = ({ onClick, completed, summary, title}) => (
   <TableRow>
-    <TableRowColumn>{`${todo.title}`}</TableRowColumn>
-    <TableRowColumn>{`${todo.summary}`}</TableRowColumn>
-    <TableRowColumn>{`${todo.completed}`}</TableRowColumn>
-    <TableRowColumn><FlatButton label="Edit" primary /></TableRowColumn>
-    <TableRowColumn><FlatButton label="Delete" secondary /></TableRowColumn>
+    <TableRowColumn style={{textDecoration: completed ? 'line-through' : 'none'}}>
+      {`${title}`}
+    </TableRowColumn>
+    <TableRowColumn style={{textDecoration: completed ? 'line-through' : 'none'}}>
+      {`${summary}`}
+    </TableRowColumn>
+    <TableRowColumn>{`${completed}`}</TableRowColumn>
+    <TableRowColumn><FlatButton label="Edit" primary onClick={onClick} /></TableRowColumn>
+    <TableRowColumn><FlatButton label="Delete" secondary onClick={onClick} /></TableRowColumn>
   </TableRow>
 )
+
+Todo.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  completed: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired
+}
 
 export default Todo;

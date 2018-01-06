@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
-import Todo from './Todo.jsx';
-import LogoutBar from './LogoutBar.jsx'
 import {
   Table,
   TableBody,
@@ -10,35 +12,48 @@ import {
   TableRow,
   TableHeaderColumn,
 } from 'material-ui/Table';
+import { getTodos } from '../actions/todos.js';
+import Todo from './Todo.jsx';
+import LogoutBar from './LogoutBar.jsx';
+import Footer from './Footer.jsx';
+import AddTodo from '../containers/AddTodo.jsx';
 
 class Todos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: []
+      todos: [],
+      currentTodo: {},
     }
-
     this.addTodo = this.addTodo.bind(this);
     this.fetchTodos = this.fetchTodos.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-    componentDidMount() {
-    this.fetchTodos();
+  componentWillMount() {
+    this.props.dispatch(getTodos());
+  }
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      // this.addTodo();
+      console.log('enter pressed');
+    }
   }
 
   addTodo(todo) {
-    let todos;
+    let tasks;
     axios.post('/todo', {
       todo: todo
     })
     .then(function(response) {
-      todos = response.data;
+      tasks = response.data;
     })
     .catch(function(error) {
       console.log(error);
     })
 
-    this.fetchTodos(todos);
+    this.fetchTodos(tasks);
   }
 
   fetchTodos(todos) {
@@ -61,6 +76,8 @@ class Todos extends React.Component {
   }
 
   render () {
+    const { todos } = this.props;
+
     return (
       <div>
       <LogoutBar />
@@ -79,14 +96,20 @@ class Todos extends React.Component {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {this.state.todos.map((todo, i) => {
-            return <Todo key={i} todo={todo} />
+          {todos.map((todo, i) => {
+            return <Todo key={todo.id} completed={todo.completed} title={todo.title} summary={todo.summary} />
           })}
         </TableBody>
       </Table>
+      <AddTodo />
+      <Footer />
       </div>
     )
   }
 }
 
-export default Todos;
+const mapStateToProps = state => ({
+  todos: state.todos
+});
+
+export default connect(mapStateToProps)(Todos);
