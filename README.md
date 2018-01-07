@@ -12,14 +12,15 @@ $ cd breadwareTodoList
 # install dependencies
 $ npm install
 
+# connect to the mongodb
+$ npm run db-start
+
 # build the bundle.js with webpack
 $ npm run react-dev
 
 # start the node/express server
 $ npm run server-dev
 
-# connect to the mongodb
-$ npm run db-start
 
 # view the web app in your preferred browser
 $ type localhost:5000 into your address bar
