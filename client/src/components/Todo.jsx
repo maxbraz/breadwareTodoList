@@ -21,11 +21,4 @@ const Todo = ({ onClick, completed, summary, title}) => (
   </TableRow>
 )
 
-Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired
-}
-
 export default Todo;

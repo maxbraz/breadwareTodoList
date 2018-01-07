@@ -18,7 +18,7 @@ const style = {
   }
 };
 
-class Login extends React.Component {
+class LandingPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +28,7 @@ class Login extends React.Component {
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleNameError = this.handleNameError.bind(this);
   }
 
@@ -37,6 +38,12 @@ class Login extends React.Component {
     this.setState({
       username: value,
     });
+  }
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.handleLogin();
+    }
   }
 
   handleNameError() {
@@ -68,6 +75,7 @@ class Login extends React.Component {
               floatingLabelFocusStyle={{ color: 'rgb(255, 64, 129)' }}
               underlineFocusStyle={{ borderBottomColor: 'rgb(255, 64, 129)' }}
               onChange={this.handleChange}
+              onKeyUp={this.handleKeyPress}
             />
             <RaisedButton label="Login" primary={true} style={style.button} onClick={this.handleLogin} />
           </div>
@@ -80,4 +88,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default LandingPage;

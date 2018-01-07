@@ -27,20 +27,12 @@ class Todos extends React.Component {
     }
     this.addTodo = this.addTodo.bind(this);
     this.fetchTodos = this.fetchTodos.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  componentWillMount() {
-    this.fetchTodos();
+  componentDidMount() {
     this.props.dispatch(getTodos());
   }
 
-  handleKeyPress(e) {
-    if (e.key === 'Enter') {
-      // this.addTodo();
-      console.log('enter pressed');
-    }
-  }
 
   addTodo(todo) {
     let tasks;
@@ -70,6 +62,7 @@ class Todos extends React.Component {
       fetchedTodos = response.data;
 
       that.setState({todos: fetchedTodos});
+
     })
     .catch(function (error) {
       console.log(error);
@@ -97,8 +90,8 @@ class Todos extends React.Component {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {this.state.todos.map((todo, i) => {
-            return <Todo key={todo.id} completed={todo.completed} title={todo.title} summary={todo.summary} />
+          {this.props.todos.map((todo, i) => {
+            return <Todo key={i} completed={todo.completed} title={todo.title} summary={todo.summary} />
           })}
         </TableBody>
       </Table>

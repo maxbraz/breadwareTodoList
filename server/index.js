@@ -5,10 +5,10 @@ const Todo = require('../db/index.js');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, './../client/dist')));
+app.use(express.static(path.join(__dirname, './../client/public')));
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, './../client/dist'));
+  res.sendFile(path.join(__dirname, './../client/public'));
 });
 
 app.post('/todo', (req, res) => {
