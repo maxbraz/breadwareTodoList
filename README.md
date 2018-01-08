@@ -21,6 +21,5 @@ $ npm run react-dev
 # start the node/express server
 $ npm run server-dev
 
-
 # view the web app in your preferred browser
 $ type localhost:5000 into your address bar
