@@ -7,9 +7,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../client/public')));
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, './../client/public'));
-});
 
 app.post('/todo', (req, res) => {
   let todo = new Todo({
@@ -32,6 +29,23 @@ app.get('/todos', (req, res) => {
 
     res.end(JSON.stringify(todos));
   });
+});
+
+app.put('/update', (req, res) => {
+  console.log(req.body.todo.id);
+  let query = { id: req.body.todo.id };
+
+  Todo.findOneAndUpdate(query, {completed: req.body.todo.completed}, (err, todo) => {
+    if (err) {
+      console.log('update error');
+    } else {
+      console.log('successful update');
+    }
+  });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
 const port = process.env.PORT || 5000;

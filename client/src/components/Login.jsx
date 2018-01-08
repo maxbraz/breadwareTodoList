@@ -26,6 +26,7 @@ class LandingPage extends React.Component {
       isManager: false,
       username: '',
     };
+
     this.handleLogin = this.handleLogin.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -63,10 +64,10 @@ class LandingPage extends React.Component {
   render () {
     if (!this.state.isEmployee && !this.state.isManager) {
       return (
-          <div>
-            <Bar />
+        <div>
+          <Bar />
+          <div className="center">
             <TextField
-              fullWidth
               floatingLabelText="username"
               required
               id="username"
@@ -79,10 +80,14 @@ class LandingPage extends React.Component {
             />
             <RaisedButton label="Login" primary={true} style={style.button} onClick={this.handleLogin} />
           </div>
+        </div>
       )
     } else {
       return (
-        <Redirect to='todos' />
+        <Redirect to={{
+          pathname: '/todos' ,
+          state: { userType: this.state.username }
+        }}/>
       )
     }
   }

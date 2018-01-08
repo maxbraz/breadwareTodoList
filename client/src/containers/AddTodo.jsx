@@ -4,48 +4,54 @@ import { addTodo } from '../actions'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-let AddTodo = ({ dispatch }) => {
-  let input
+class AddTodo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      sumarry: '',
+      completed: false,
+    }
 
-  return (
-    <div>
-      <form
-        onSubmit={e => {
-          e.preventDefault()
-          if (!input.value.trim()) {
-            return
-          }
-          dispatch(addTodo(input.value))
-          input.value = ''
-        }}
-      >
-        <input
-          ref={node => {
-            input = node
-          }}
+    this.addTodo = this.addTodo.bind(this);
+  }
+
+  addTodo() {
+
+  }
+
+  render () {
+
+    return (
+      <div>
+        <TextField
+          fullWidth
+          floatingLabelText="create a todo item"
+          required
+          id="title"
+          type="text"
+          name="todo"
+          floatingLabelFocusStyle={{ color: 'rgb(255, 64, 129)' }}
+          underlineFocusStyle={{ borderBottomColor: 'rgb(255, 64, 129)' }}
+          onChange={this.handleChange}
         />
-        <button type="submit">
-          Add Todo
-        </button>
-      </form>
-
-    </div>
-  )
+        <TextField
+          fullWidth
+          floatingLabelText="add a summary"
+          required
+          id="title"
+          type="text"
+          name="todo"
+          floatingLabelFocusStyle={{ color: 'rgb(255, 64, 129)' }}
+          underlineFocusStyle={{ borderBottomColor: 'rgb(255, 64, 129)' }}
+          onChange={this.handleChange}
+        />
+        <RaisedButton label="Login" primary={true} onClick={this.handleLogin} />
+      </div>
+    )
+  }
 }
 AddTodo = connect()(AddTodo)
 
 export default AddTodo
-
-// replace basic form with material ui
-      // <TextField
-      //   fullWidth
-      //   floatingLabelText="create a todo item"
-      //   required
-      //   id="todo"
-      //   type="text"
-      //   name="todo"
-      //   floatingLabelFocusStyle={{ color: 'rgb(255, 64, 129)' }}
-      //   underlineFocusStyle={{ borderBottomColor: 'rgb(255, 64, 129)' }}
-      //   onChange={this.handleChange}
-      // />
-      // <RaisedButton label="Login" primary={true} style={style.button} onClick={this.handleLogin} />
+// dispatch(addTodo(input.value))

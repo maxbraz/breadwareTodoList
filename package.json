@@ -19,6 +19,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "material-ui": "^0.20.0",
+    "material-ui-fullscreen-dialog": "^0.7.2",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.10",
     "prop-types": "^15.6.0",

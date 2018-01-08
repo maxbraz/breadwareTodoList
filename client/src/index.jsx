@@ -26,7 +26,7 @@ const App = () => (
           <Route exact path='/login' component={Login} />
           <Route exact path='/todos' component={Todos} />
           <Route exact path='/edit' component={Edit} />
-          <Route exact path='/create' component={AddTodo} />
+          <Route exact path='/create' component={Create} />
         </Switch>
       </Router>
     </MuiThemeProvider>
