@@ -65,9 +65,8 @@ class LandingPage extends React.Component {
       return (
           <div>
             <Bar />
-            <div>
+            <div className="center">
               <TextField
-                fullWidth
                 floatingLabelText="username"
                 required
                 id="username"
@@ -78,8 +77,8 @@ class LandingPage extends React.Component {
                 onChange={this.handleChange}
                 onKeyUp={this.handleKeyPress}
               />
-            </div>
             <RaisedButton label="Login" primary={true} style={style.button} onClick={this.handleLogin} />
+            </div>
           </div>
       )
     } else {
