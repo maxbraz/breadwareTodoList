@@ -65,7 +65,7 @@ class LandingPage extends React.Component {
       return (
           <div>
             <Bar />
-            <div className="center">
+            <div>
               <TextField
                 fullWidth
                 floatingLabelText="username"
