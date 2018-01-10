@@ -79,7 +79,9 @@ class LandingPage extends React.Component {
                 onKeyUp={this.handleKeyPress}
               />
             </div>
-            <RaisedButton label="Login" primary={true} style={style.button} onClick={this.handleLogin} />
+            <div className="center">
+              <RaisedButton label="Login" primary={true} style={style.button} onClick={this.handleLogin} />
+            </div>
           </div>
       )
     } else {
