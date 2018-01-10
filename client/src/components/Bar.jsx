@@ -8,7 +8,7 @@ function handleClick() {
 
 const LogoutBar = () => (
   <AppBar
-    title={<span>Breadware Todos</span>}
+    title={<span className="center">Breadware Todos</span>}
     showMenuIconButton={false}
   />
 );
