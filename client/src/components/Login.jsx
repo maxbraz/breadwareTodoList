@@ -65,18 +65,20 @@ class LandingPage extends React.Component {
       return (
           <div>
             <Bar />
-            <TextField
-              fullWidth
-              floatingLabelText="username"
-              required
-              id="username"
-              type="text"
-              name="username"
-              floatingLabelFocusStyle={{ color: 'rgb(255, 64, 129)' }}
-              underlineFocusStyle={{ borderBottomColor: 'rgb(255, 64, 129)' }}
-              onChange={this.handleChange}
-              onKeyUp={this.handleKeyPress}
-            />
+            <div className="center">
+              <TextField
+                fullWidth
+                floatingLabelText="username"
+                required
+                id="username"
+                type="text"
+                name="username"
+                floatingLabelFocusStyle={{ color: 'rgb(255, 64, 129)' }}
+                underlineFocusStyle={{ borderBottomColor: 'rgb(255, 64, 129)' }}
+                onChange={this.handleChange}
+                onKeyUp={this.handleKeyPress}
+              />
+            </div>
             <RaisedButton label="Login" primary={true} style={style.button} onClick={this.handleLogin} />
           </div>
       )

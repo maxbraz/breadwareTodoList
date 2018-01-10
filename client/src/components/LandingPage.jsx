@@ -7,12 +7,11 @@ import Bar from './Bar.jsx'
 const LandingPage = () => (
   <div>
     <Bar />
-    <br></br>
-    <div> Welcome to Breadware </div>
-    <br></br>
-    <Link to="/login">
-      <RaisedButton label="Get Started" primary />
-    </Link>
+    <div className="center">
+      <Link to="/login">
+        <RaisedButton label="Get Started" primary />
+      </Link>
+    </div>
   </div>
 );
 
