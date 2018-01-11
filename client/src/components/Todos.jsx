@@ -30,47 +30,35 @@ class Todos extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getTodos());
+    this.fetchTodos();
   }
-
 
   addTodo(todo) {
-    let tasks;
+    let todos;
     axios.post('/todo', {
-      todo: todo
+      title: todo.title,
+      summary: todo.summary,
     })
-    .then(function(response) {
-      tasks = response.data;
+    .then((res) => {
+      console.log(res.data);
     })
-    .catch(function(error) {
-      console.log(error);
-    })
+    .catch((err) => {
+      console.log(err);
+    });
 
-    this.fetchTodos(tasks);
+    this.fetchTodos();
   }
 
-  fetchTodos(todos) {
-    let fetchedTodos;
-    let that = this;
-
-    axios.get('/todos', {
-      params: {
-        todos: todos
-      }
-    })
-    .then(function (response) {
-      fetchedTodos = response.data;
-
-      that.setState({todos: fetchedTodos});
-
-    })
-    .catch(function (error) {
-      console.log(error);
+  fetchTodos() {
+    this.props.dispatch(getTodos());
+    this.setState({
+      todos: this.props.todos,
     });
   }
 
   render () {
     const { todos } = this.props;
+    const { currentTodo } = this.state;
 
     return (
       <div>
@@ -95,7 +83,7 @@ class Todos extends React.Component {
           })}
         </TableBody>
       </Table>
-      <AddTodo />
+      <AddTodo addTodo={this.addTodo} />
       <Footer />
       </div>
     )

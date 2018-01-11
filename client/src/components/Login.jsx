@@ -32,6 +32,9 @@ class LandingPage extends React.Component {
     this.handleNameError = this.handleNameError.bind(this);
   }
 
+  componentDidMount() {
+
+  }
   handleChange(e) {
     const value = e.target.value;
 
@@ -72,6 +75,8 @@ class LandingPage extends React.Component {
                 id="username"
                 type="text"
                 name="username"
+                value={this.state.username}
+                autoFocus
                 floatingLabelFocusStyle={{ color: 'rgb(255, 64, 129)' }}
                 underlineFocusStyle={{ borderBottomColor: 'rgb(255, 64, 129)' }}
                 onChange={this.handleChange}

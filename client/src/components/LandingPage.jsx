@@ -9,7 +9,7 @@ const LandingPage = () => (
     <Bar />
     <div className="center">
       <Link to="/login">
-        <RaisedButton label="Get Started" primary />
+        <RaisedButton label="Get Started" primary autoFocus/>
       </Link>
     </div>
   </div>

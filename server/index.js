@@ -18,7 +18,15 @@ app.post('/todo', (req, res) => {
     'completed': false,
   });
 
-  res.send(JSON.stringify('Successful Post!'));
+  todo.save((err) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log('new todo created');
+    }
+  });
+
+  res.send(JSON.stringify('Todo created'));
 });
 
 app.get('/todos', (req, res) => {
